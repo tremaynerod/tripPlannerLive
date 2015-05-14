@@ -83,10 +83,14 @@ $(document).ready(function() {
 	$('#rest-btn').on("click", function(){
 		var $restaurantVal = $('#restaurants').val();
 
+
 		var $isIn = false;
 		$('#itny').find('li').each(function(key, element){
-			console.log('ARE WE IN?', element.innerHTML)
-			if($(element).text()===$restaurantVal){
+			
+			var $check = $(element).clone().children().remove().end().text();
+			if($check===$restaurantVal){
+			//if($(element).text()===$restaurantVal){
+
 				 $isIn = true;
 				 alert('You already added that restaurant');
 			}
@@ -101,9 +105,8 @@ $(document).ready(function() {
 			$restaurantVal = '<li>'+$restaurantVal+'<button class="btn btn-xs btn-danger remove btn-circle delete">x</button></li>';
 			$('#rest-ul').append($restaurantVal);
 
-			pushContent($itineraryArr);
 		}
-
+		pushContent($itineraryArr);
 
 	});
 
@@ -125,9 +128,10 @@ $(document).ready(function() {
 
 			$('#things-ul').append($thingsVal);
 
-			pushContent($itineraryArr);
+			
 		}
 
+		pushContent($itineraryArr);
 
 	});
 		$("ul").on("click", ".delete", function(){
