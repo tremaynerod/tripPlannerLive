@@ -84,3 +84,6 @@ select {
     background: #564a41;
     box-shadow: inset 0 0 10px #39312b;
     color: #fff; }
+
+#day2, #day3 {
+  display: none; }
